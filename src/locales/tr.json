@@ -1,0 +1,40 @@
+{
+    "app": {
+        "title": "Brand Variant Studio",
+        "hero": {
+            "title": "Mükemmel marka estetiğinizi bulun.",
+            "subtitle": "Anında 100 benzersiz tipografik ve renk uyumu oluşturmak için bir isim girin.",
+            "placeholder": "Marka ismini girin...",
+            "generate": "Oluştur",
+            "try": "Dene:"
+        },
+        "tabs": {
+            "explore": "Keşfet",
+            "liked": "Beğenilenler"
+        },
+        "filters": {
+            "label": "Filtreler:",
+            "all_fonts": "Tüm Yazı Tipleri",
+            "tones_suffix": " Tonları",
+            "allow_casing": "Büyük/küçük harf düzenine izin ver",
+            "shuffle_fonts": "Yazı Tiplerini Karıştır",
+            "shuffle_colors": "Renkleri Karıştır"
+        },
+        "liked": {
+            "saved_concepts": "Kaydedilen Konseptler",
+            "export_json": "JSON Dışa Aktar",
+            "print_pdf": "Yazdır / PDF",
+            "no_variants": "Henüz varyant yok",
+            "empty_message": "Keşfet'e geri dönün ve beğendiğiniz stilleri kalpleyin."
+        },
+        "card": {
+            "export_png": "PNG Olarak Dışa Aktar",
+            "copy_font": "Yazı Tipi Ailesini Kopyala",
+            "background": "Arka Plan",
+            "text": "Metin",
+            "copy_bg": "Arka Plan Hex Kopyala",
+            "copy_text": "Metin Hex Kopyala",
+            "weight": "A:"
+        }
+    }
+}

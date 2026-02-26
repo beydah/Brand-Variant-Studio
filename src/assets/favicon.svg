@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bvGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5A67D8" />
+      <stop offset="100%" stop-color="#3C366B" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="512" height="512" rx="120" fill="url(#bvGradient)"/>
+  
+  <text 
+    x="50%" 
+    y="54%" 
+    font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" 
+    font-weight="900" 
+    font-size="260" 
+    letter-spacing="-10"
+    fill="#ffffff" 
+    text-anchor="middle" 
+    dominant-baseline="middle">
+    BV
+  </text>
+</svg>

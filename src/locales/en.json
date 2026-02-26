@@ -1,0 +1,40 @@
+{
+    "app": {
+        "title": "Brand Variant Studio",
+        "hero": {
+            "title": "Find your perfect brand aesthetic.",
+            "subtitle": "Enter a name to instantly generate 100 unique typographic and color harmonies.",
+            "placeholder": "Enter brand name...",
+            "generate": "Generate",
+            "try": "Try:"
+        },
+        "tabs": {
+            "explore": "Explore",
+            "liked": "Liked"
+        },
+        "filters": {
+            "label": "Filters:",
+            "all_fonts": "All Fonts",
+            "tones_suffix": " Tones",
+            "allow_casing": "Allow casing edits",
+            "shuffle_fonts": "Shuffle Fonts",
+            "shuffle_colors": "Shuffle Colors"
+        },
+        "liked": {
+            "saved_concepts": "Saved Concepts",
+            "export_json": "Export JSON",
+            "print_pdf": "Print / PDF",
+            "no_variants": "No variants yet",
+            "empty_message": "Go back to explore and heart some styles you like."
+        },
+        "card": {
+            "export_png": "Export as PNG",
+            "copy_font": "Copy Font Family",
+            "background": "Background",
+            "text": "Text",
+            "copy_bg": "Copy Background Hex",
+            "copy_text": "Copy Text Hex",
+            "weight": "W:"
+        }
+    }
+}
