@@ -13,7 +13,7 @@ const F_Filter_Section = ({ filters: p_filters, setFilters: p_set_filters, gener
     const { t } = useTranslation();
 
     return (
-        <section className="bg-white dark:bg-slate-900 rounded-2xl p-4 shadow-sm border border-slate-200 dark:border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4 sticky top-20 z-40">
+        <section className="bg-white dark:bg-slate-900 rounded-2xl p-4 shadow-sm border border-slate-200 dark:border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
 
             <div className="flex flex-wrap items-center gap-4 w-full md:w-auto">
                 <div className="flex items-center gap-2">

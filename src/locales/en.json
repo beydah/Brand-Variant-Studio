@@ -39,7 +39,8 @@
         },
         "footer": {
             "made_by": "Made by",
-            "contribute": "Contribute on GitHub"
+            "contribute": "Contribute on GitHub",
+            "license": "Licensed under MIT"
         }
     }
 }

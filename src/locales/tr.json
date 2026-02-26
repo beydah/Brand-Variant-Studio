@@ -39,7 +39,8 @@
         },
         "footer": {
             "made_by": "Geliştiren:",
-            "contribute": "GitHub'da Katkı Yapabilirsiniz"
+            "contribute": "GitHub'da Katkı Yapabilirsiniz",
+            "license": "MIT Lisansı altındadır"
         }
     }
 }
