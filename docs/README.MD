@@ -1,87 +1,87 @@
-# 🎨 Brand Variant Studio
+# Brand Variant Studio
 
-> A professional-grade typographic and color aesthetic explorer tool for high-end brand design.
+![Brand Variant Studio Cover](https://via.placeholder.com/1200x630?text=Brand+Variant+Studio)
 
-![Brand Variant Studio](https://img.shields.io/badge/Status-Standardized-brightgreen)
-![Tech Stack](https://img.shields.io/badge/Stack-React%20%7C%20Vite%20%7C%20Tailwind-blue)
-![Architecture](https://img.shields.io/badge/Architecture-Atomic%20Design-orange)
+> "Mükemmel marka estetiğinizi saniyeler içinde bulun."
 
-## 📖 Overview
+Brand Variant Studio is a meticulously crafted, client-side React application that empowers designers, developers, and entrepreneurs to instantly generate and visualize 100+ unique typographic and color harmonies for their brand names. Built with modern web technologies, it offers a seamless, high-performance experience directly in your browser without requiring a backend architecture.
 
-**Brand Variant Studio** is a sophisticated generator designed for designers and brand developers. It creates 100 unique typographic harmonies instantly, allowing users to explore different brand aesthetics across various categories like "Sans Serif", "Serif", "Tech/Mono", and "Elegant".
+## 🚀 Features
 
-## ✨ Key Features
+- **Instant Generation**: Type a brand name and instantly behold hundreds of beautifully matched font families and color palettes.
+- **Smart Color Harmonies**: Proprietary color utility matching (`color_utils.js`) ensuring perfect WCAG contrast ratios across vibrant, pastel, and dark tones.
+- **Dynamic Filtering**: Instantly filter outputs by font categories (Serif, Sans-Serif, Display, Monospace) and specific color moods.
+- **High-Resolution Exports**: Capture and download any generated concept card natively as a high-fidelity PNG utilizing `html2canvas` DOM cloning.
+- **Responsive Architecture**: Fully responsive grid that collapses elegantly from desktop down to mobile-app style navigation.
+- **Client-Side Persistence**: State and liked variants are perpetually stored in your browser leveraging powerful IndexedDB caching.
+- **i18n Ready**: Natively supports full English and Turkish locales seamlessly switchable without page reloads.
+- **Dark Mode**: Ships with a stunning Dark Mode enabled by default.
 
-- **Automated Aesthetic Generation**: 100 unique cards with contrasting color palettes and font pairings.
-- **Atomic Design System**: Built with modular components (Atoms, Molecules, Organisms).
-- **Service-Based Logic**: Decoupled business logic for variant generation and file exports.
-- **Global Localization (i18n)**: Full support for English and Turkish out of the box.
-- **Google Fonts Integration**: Dynamic loading of font families as needed.
-- **Export Capabilities**: Save your favorites as PNG images or export the entire library as a JSON configuration.
-- **Dark/Light Mode**: Fully responsive theme switching that persists locally.
+## 🛠 Tech Stack
 
-## 🏗 Architecture & Project Structure
+- **Core**: React 18, Vite
+- **Styling**: Tailwind CSS
+- **Routing**: React Router DOM v6
+- **Storage**: IndexedDB (via `idb` wrappers)
+- **Icons**: Lucide React
+- **Animations**: Framer Motion
+- **Localization**: `i18next`, `react-i18next`
+- **Exporting**: `html2canvas`
 
-The project follows strict **Full-Stack Best Practices** for project organization:
-
-```text
-src/
-├── components/          # UI Components (Atomic Design)
-│   ├── atoms/           # Basic building blocks (Buttons, Badges)
-│   ├── molecules/       # Groups of atoms (CopyButton)
-│   ├── organisms/       # Complex sections (Header, Cards)
-│   ├── templates/       # Page layouts (MainLayout)
-│   └── pages/           # High-level views (Explore, Liked)
-├── services/            # Business Logic & External APIs
-│   ├── variant_service.js # Variant generation & exports
-│   └── localization.js  # i18n configuration
-├── constants/           # Global constants (Font data, Color tones)
-├── hooks/               # Custom React hooks (Theme, Storage)
-├── locales/             # Translation files (EN, TR)
-├── utils/               # Pure utility functions (Color math)
-├── app.jsx              # Main orchestrator
-└── main.jsx             # Entry point
-```
-
-## 🛠 Naming Conventions
-
-This project enforces strict naming standards:
-
-| Level                | Convention     | Example              |
-| :------------------- | :------------- | :------------------- |
-| **Folders & Files**  | `snake_case`   | `variant_card.jsx`   |
-| **Functions**        | `F_Snake_Case` | `F_Generate_Variant` |
-| **Classes**          | `C_Snake_Case` | `C_Theme_Manager`    |
-| **Parameters**       | `p_snake_case` | `p_brand_name`       |
-| **Local Variables**  | `snake_case`   | `l_current_variant`  |
-| **Global Constants** | `SNAKE_CASE`   | `ALL_FONTS`          |
-
-## 🚀 Getting Started
+## 📦 Getting Started
 
 ### Prerequisites
-
-- Node.js (v18+)
-- npm / yarn
+Make sure you have Node.js (v18+) and npm installed on your machine.
 
 ### Installation
 
-1. Clone the repository
-2. Install dependencies:
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/beydah/Brand-Variant-Studio.git
+   cd Brand-Variant-Studio
+   ```
+
+2. **Install dependencies:**
    ```bash
    npm install
    ```
-3. Start the development server:
+
+3. **Start the development server:**
    ```bash
    npm run dev
    ```
 
-## 🛡 Security & Contribution
+4. **Build for production:**
+   ```bash
+   npm run build
+   ```
 
-Please refer to the `docs/` folder for more detailed information:
-- [CONTRIBUTION.MD](./CONTRIBUTION.MD)
-- [SECURITY.MD](./SECURITY.MD)
-- [LICENSE.MD](./LICENSE.MD)
+## 📂 Project Structure (Atomic Design)
+
+```
+src/
+├── components/          # UI Components
+│   ├── atoms/           # Smallest units (badges, buttons, icons)
+│   ├── molecules/       # Combinations of atoms (copy buttons)
+│   ├── organisms/       # Complex sections (cards, navigation)
+│   ├── templates/       # Page layouts (main layout)
+│   └── pages/           # Route views (explore, likes)
+├── hooks/               # Custom React hooks (use_theme, use_indexed_db)
+├── locales/             # i18n JSON files (en, tr)
+├── services/            # Business & Generation Logic (variant_service)
+├── utils/               # Helper utilities (color calculation logic)
+├── App.jsx              # Main Router and State provider
+└── main.jsx             # React DOM root mounting
+```
+
+## 🤝 Contribution
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**. 
+Please refer to [CONTRIBUTING.md](./CONTRIBUTING.md) for detailed guidelines.
+
+## 📄 License
+
+Distributed under the MIT License. See `LICENSE.md` for more information.
 
 ---
-
-Developed with ❤️ by the Brand Variant Studio Team.
+**Developer:** [Ilkay Beydah Sağlam](https://beydahsaglam.com)

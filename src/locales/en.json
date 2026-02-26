@@ -12,6 +12,12 @@
             "explore": "Explore",
             "liked": "Liked"
         },
+        "nav": {
+            "expand": "Expand",
+            "collapse": "Collapse",
+            "theme": "Theme",
+            "language": "Language"
+        },
         "filters": {
             "label": "Filters:",
             "all_fonts": "All Fonts",

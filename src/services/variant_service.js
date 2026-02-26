@@ -68,36 +68,4 @@ export const F_Export_Liked_Json = (p_liked_variants) => {
     download_anchor_node.remove();
 };
 
-/**
- * Exports variant to PNG.
- */
-export const F_Export_To_Png = async (p_variant, p_brand_name) => {
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-    const width = 800;
-    const height = 400;
-    canvas.width = width;
-    canvas.height = height;
-
-    await document.fonts.load(`${p_variant.fontWeight} 100px "${p_variant.fontFamily}"`);
-
-    ctx.fillStyle = p_variant.bgHex;
-    ctx.fillRect(0, 0, width, height);
-
-    ctx.fillStyle = p_variant.textHex;
-    ctx.font = `${p_variant.fontWeight} 100px "${p_variant.fontFamily}"`;
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-
-    let display_text = p_brand_name;
-    if (p_variant.styles?.textTransform === 'uppercase') display_text = display_text.toUpperCase();
-    if (p_variant.styles?.textTransform === 'lowercase') display_text = display_text.toLowerCase();
-
-    ctx.fillText(display_text, width / 2, height / 2);
-
-    const link = document.createElement('a');
-    link.download = `${p_brand_name}-${p_variant.fontFamily.replace(/\s+/g, '-')}.png`;
-    link.href = canvas.toDataURL('image/png');
-    link.click();
-};
 // #endregion

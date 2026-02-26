@@ -12,6 +12,12 @@
             "explore": "Keşfet",
             "liked": "Beğenilenler"
         },
+        "nav": {
+            "expand": "Genişlet",
+            "collapse": "Daralt",
+            "theme": "Tema",
+            "language": "Dil"
+        },
         "filters": {
             "label": "Filtreler:",
             "all_fonts": "Tüm Yazı Tipleri",

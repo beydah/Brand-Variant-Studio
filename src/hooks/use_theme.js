@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react';
 export const F_Use_Theme = () => {
     const [is_dark, set_is_dark] = useState(() => {
         const l_saved_theme = localStorage.getItem('brandStudioTheme');
-        return l_saved_theme === 'dark';
+        return l_saved_theme ? l_saved_theme === 'dark' : true; // Default to dark mode if no saved preference
     });
 
     useEffect(() => {
