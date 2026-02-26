@@ -12,7 +12,6 @@
   "dependencies": {
     "@vitejs/plugin-react": "^5.1.4",
     "framer-motion": "^12.34.3",
-    "html2canvas": "^1.4.1",
     "i18next": "^25.8.13",
     "i18next-browser-languagedetector": "^8.2.1",
     "lucide-react": "^0.575.0",
