@@ -51,41 +51,62 @@ const F_Main_Layout = ({ children: p_children, activeTab: p_active_tab, setActiv
                 <style dangerouslySetInnerHTML={{
                     __html: `
         @page {
-            size: A4;
+            size: A4 landscape; /* Recommend landscape for 4 columns */
             margin: 1.5cm;
         }
         @media print {
-          body { 
-              background: white !important; 
+          html, body { 
+              background: #ffffff !important; 
               color: #0f172a !important;
               -webkit-print-color-adjust: exact !important;
               print-color-adjust: exact !important; 
           }
-          .dark { background: white !important; color: #0f172a !important; }
+          /* Strip dark mode entirely */
+          * { background-color: transparent; }
+          .dark { background: #ffffff !important; color: #0f172a !important; }
+          .dark body { background: #ffffff !important; }
+          
           nav, section:first-of-type, .no-print, [data-html2canvas-ignore="true"] { display: none !important; }
+          
           .md\\:ml-64, .md\\:ml-20 { margin-left: 0 !important; }
-          main { padding: 0 !important; max-width: 100% !important; margin: 0 !important; }
+          
+          /* Enforce margins and strict 4 column layout */
+          main { 
+              padding: 2cm 0 !important; 
+              max-width: 100% !important; 
+              margin: 0 !important; 
+          }
+          
           .grid { 
               display: grid !important; 
-              grid-template-columns: repeat(2, minmax(0, 1fr)) !important; 
-              gap: 20px !important; 
+              grid-template-columns: repeat(4, minmax(0, 1fr)) !important; 
+              gap: 15px !important; 
               align-items: start !important;
           }
+          
           .print-card-wrapper { 
               page-break-inside: avoid !important;
               break-inside: avoid !important; 
               margin-bottom: 0px !important; 
               box-shadow: none !important; 
               border: 1px solid #e2e8f0 !important; 
-              background: white !important;
+              background: #ffffff !important;
           }
+          
+          /* Cards should keep their visual preview backgrounds */
+          .print-card-wrapper div[style*="background-color"] {
+              -webkit-print-color-adjust: exact !important;
+              print-color-adjust: exact !important; 
+          }
+
           /* Strip hover effects from cards */
           .group:hover { transform: none !important; box-shadow: none !important; }
           button { display: none !important; }
 
           /* Override meta info text colors to dark for legibility on white paper */
-          .meta-info * { color: #0f172a !important; }
-          .dark .meta-info .bg-slate-800 { background: #f8fafc !important; }
+          .meta-info, .meta-info * { color: #0f172a !important; }
+          .meta-info { background: #ffffff !important; }
+          .dark .meta-info .bg-slate-800, .meta-info .bg-slate-100 { background: #f8fafc !important; }
           .dark .meta-info .border-slate-800 { border-color: #e2e8f0 !important; }
           .meta-info svg { stroke: #0f172a !important; }
         }
