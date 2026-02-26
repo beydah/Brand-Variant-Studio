@@ -8,7 +8,7 @@ import { Copy, Check } from 'lucide-react';
 /**
  * Molecular component: Copy Button.
  */
-const F_Copy_Button = ({ text: p_text, tooltip: p_tooltip }) => {
+const F_Copy_Button = ({ text: p_text, tooltip: p_tooltip, hideText: p_hide_text = false }) => {
     const { t } = useTranslation();
     const [l_copied, set_l_copied] = useState(false);
 
@@ -22,11 +22,11 @@ const F_Copy_Button = ({ text: p_text, tooltip: p_tooltip }) => {
     return (
         <button
             onClick={F_Handle_Copy}
-            className="group relative flex items-center gap-1.5 px-2 py-1 text-xs font-medium rounded-md text-slate-500 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-400 dark:hover:text-slate-100 dark:hover:bg-slate-800 transition-colors"
+            className={`group relative flex items-center justify-center gap-1.5 ${p_hide_text ? 'p-1.5' : 'px-2 py-1'} text-xs font-medium rounded-md text-slate-500 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-400 dark:hover:text-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer`}
             title={p_tooltip}
         >
             {l_copied ? <Check size={14} className="text-green-500" /> : <Copy size={14} />}
-            <span>{p_text}</span>
+            {!p_hide_text && <span>{p_text}</span>}
         </button>
     );
 };

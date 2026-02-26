@@ -36,6 +36,11 @@ const F_Variant_Card = ({ variant: p_variant, brandName: p_brand_name, isLiked: 
         const temp = l_edited_bg;
         set_l_edited_bg(l_edited_text);
         set_l_edited_text(temp);
+
+        // Auto-save instantly inside liked tab
+        if (p_modify_variant) {
+            p_modify_variant(p_variant.id, l_edited_text, temp); // Note: we pass the swapped values
+        }
     };
 
     const l_bg_rgb = hexToRgb(l_edited_bg);
@@ -119,7 +124,7 @@ const F_Variant_Card = ({ variant: p_variant, brandName: p_brand_name, isLiked: 
                             {p_variant.fontFamily}
                         </span>
                         <div className="shrink-0 mt-0.5">
-                            <F_Copy_Button text={p_variant.fontFamily} tooltip={t('app.card.copy_font')} />
+                            <F_Copy_Button text={p_variant.fontFamily} tooltip={t('app.card.copy_font')} hideText />
                         </div>
                     </div>
 

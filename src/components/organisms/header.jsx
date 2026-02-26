@@ -1,6 +1,7 @@
 // #region Imports
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link, useNavigate } from 'react-router-dom';
 import { Sun, Moon, Menu, X } from 'lucide-react';
 import F_Icon_Button from '../atoms/icon_button';
 // #endregion
@@ -9,9 +10,10 @@ import F_Icon_Button from '../atoms/icon_button';
 /**
  * Organism component: Header.
  */
-const F_Header = ({ activeTab: p_active_tab, setActiveTab: p_set_active_tab, likedCount: p_liked_count, isDark: p_is_dark, toggleTheme: p_toggle_theme }) => {
+const F_Header = ({ activeTab: p_active_tab, likedCount: p_liked_count, isDark: p_is_dark, toggleTheme: p_toggle_theme }) => {
     const { t, i18n } = useTranslation();
     const [l_is_mobile_menu_open, set_l_is_mobile_menu_open] = useState(false);
+    const navigate = useNavigate();
 
     const F_Toggle_Language = () => {
         const l_new_lang = i18n.language === 'en' ? 'tr' : 'en';
@@ -45,11 +47,11 @@ const F_Header = ({ activeTab: p_active_tab, setActiveTab: p_set_active_tab, lik
     return (
         <header className="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-                <div className="flex items-center gap-2">
+                <Link to="/home" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
                     {logoSvg}
                     <span className="font-bold text-lg tracking-tight hidden sm:block">{t('app.title')}</span>
                     <span className="font-bold text-md tracking-tight sm:hidden">{t('app.title')}</span>
-                </div>
+                </Link>
 
                 {/* Desktop Menu */}
                 <div className="hidden sm:flex items-center gap-4">
@@ -62,7 +64,7 @@ const F_Header = ({ activeTab: p_active_tab, setActiveTab: p_set_active_tab, lik
 
                     <div className="flex p-1 bg-slate-100 dark:bg-slate-800 rounded-lg">
                         <button
-                            onClick={() => p_set_active_tab('explore')}
+                            onClick={() => navigate('/home')}
                             className={`px-4 py-1.5 text-sm font-medium rounded-md transition-all ${p_active_tab === 'explore'
                                 ? 'bg-white dark:bg-slate-700 shadow text-slate-900 dark:text-white'
                                 : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
@@ -71,7 +73,7 @@ const F_Header = ({ activeTab: p_active_tab, setActiveTab: p_set_active_tab, lik
                             {t('app.tabs.explore')}
                         </button>
                         <button
-                            onClick={() => p_set_active_tab('liked')}
+                            onClick={() => navigate('/likes')}
                             className={`px-4 py-1.5 text-sm font-medium rounded-md transition-all flex items-center gap-2 ${p_active_tab === 'liked'
                                 ? 'bg-white dark:bg-slate-700 shadow text-slate-900 dark:text-white'
                                 : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
@@ -131,7 +133,7 @@ const F_Header = ({ activeTab: p_active_tab, setActiveTab: p_set_active_tab, lik
                     <div className="pt-2">
                         <div className="flex p-1 bg-slate-100 dark:bg-slate-800 rounded-lg w-full">
                             <button
-                                onClick={() => { p_set_active_tab('explore'); set_l_is_mobile_menu_open(false); }}
+                                onClick={() => { navigate('/home'); set_l_is_mobile_menu_open(false); }}
                                 className={`flex-1 px-4 py-2 text-sm font-medium rounded-md transition-all text-center ${p_active_tab === 'explore'
                                     ? 'bg-white dark:bg-slate-700 shadow text-slate-900 dark:text-white'
                                     : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
@@ -140,7 +142,7 @@ const F_Header = ({ activeTab: p_active_tab, setActiveTab: p_set_active_tab, lik
                                 {t('app.tabs.explore')}
                             </button>
                             <button
-                                onClick={() => { p_set_active_tab('liked'); set_l_is_mobile_menu_open(false); }}
+                                onClick={() => { navigate('/likes'); set_l_is_mobile_menu_open(false); }}
                                 className={`flex-1 px-4 py-2 text-sm font-medium rounded-md transition-all flex items-center justify-center gap-2 ${p_active_tab === 'liked'
                                     ? 'bg-white dark:bg-slate-700 shadow text-slate-900 dark:text-white'
                                     : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
