@@ -1,8 +1,11 @@
 # Brand Variant Studio
 
-![Brand Variant Studio Cover](https://via.placeholder.com/1200x630?text=Brand+Variant+Studio)
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-> "Mükemmel marka estetiğinizi saniyeler içinde bulun."
+> "Find your perfect brand aesthetics in seconds."
 
 Brand Variant Studio is a meticulously crafted, client-side React application that empowers designers, developers, and entrepreneurs to instantly generate and visualize 100+ unique typographic and color harmonies for their brand names. Built with modern web technologies, it offers a seamless, high-performance experience directly in your browser without requiring a backend architecture.
 
@@ -11,7 +14,6 @@ Brand Variant Studio is a meticulously crafted, client-side React application th
 - **Instant Generation**: Type a brand name and instantly behold hundreds of beautifully matched font families and color palettes.
 - **Smart Color Harmonies**: Proprietary color utility matching (`color_utils.js`) ensuring perfect WCAG contrast ratios across vibrant, pastel, and dark tones.
 - **Dynamic Filtering**: Instantly filter outputs by font categories (Serif, Sans-Serif, Display, Monospace) and specific color moods.
-- **High-Resolution Exports**: Capture and download any generated concept card natively as a high-fidelity PNG utilizing `html2canvas` DOM cloning.
 - **Responsive Architecture**: Fully responsive grid that collapses elegantly from desktop down to mobile-app style navigation.
 - **Client-Side Persistence**: State and liked variants are perpetually stored in your browser leveraging powerful IndexedDB caching.
 - **i18n Ready**: Natively supports full English and Turkish locales seamlessly switchable without page reloads.
@@ -26,7 +28,6 @@ Brand Variant Studio is a meticulously crafted, client-side React application th
 - **Icons**: Lucide React
 - **Animations**: Framer Motion
 - **Localization**: `i18next`, `react-i18next`
-- **Exporting**: `html2canvas`
 
 ## 📦 Getting Started
 
