@@ -34,7 +34,12 @@
             "text": "Metin",
             "copy_bg": "Arka Plan Hex Kopyala",
             "copy_text": "Metin Hex Kopyala",
-            "weight": "A:"
+            "weight": "A:",
+            "swap_colors": "Renkleri Değiştir"
+        },
+        "footer": {
+            "made_by": "Geliştiren:",
+            "contribute": "GitHub'da Katkı Yapabilirsiniz"
         }
     }
 }

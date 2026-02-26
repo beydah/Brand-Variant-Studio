@@ -3,7 +3,7 @@
  * Converts hex to RGB.
  * @param {string} p_hex 
  */
-export const F_Hex_To_Rgb = (p_hex) => {
+export const hexToRgb = (p_hex) => {
     let r = 0, g = 0, b = 0;
     if (p_hex.length === 4) {
         r = parseInt(p_hex[1] + p_hex[1], 16);
@@ -16,6 +16,7 @@ export const F_Hex_To_Rgb = (p_hex) => {
     }
     return [r, g, b];
 };
+export const F_Hex_To_Rgb = hexToRgb;
 
 /**
  * Calculates luminance.

@@ -4,7 +4,7 @@ import F_Main_Layout from './components/templates/main_layout';
 import F_Explore_Page from './components/pages/explore_page';
 import F_Liked_Page from './components/pages/liked_page';
 import { F_Use_Theme } from './hooks/use_theme';
-import { F_Use_Local_Storage } from './hooks/use_local_storage';
+import { F_Use_Indexed_DB } from './hooks/use_indexed_db';
 import { F_Use_Font_Loader } from './hooks/use_font_loader';
 import { F_Generate_Variant, F_Export_Liked_Json } from './services/variant_service';
 import { F_Generate_Color_By_Tone, F_Get_Accessible_Text_Color, F_Get_Contrast_Ratio } from './utils/color_utils';
@@ -16,8 +16,8 @@ import { F_Generate_Color_By_Tone, F_Get_Accessible_Text_Color, F_Get_Contrast_R
  */
 export default function F_App() {
   const [l_brand_name, set_l_brand_name] = useState('Lumina');
-  const [l_variants, set_l_variants] = useState([]);
-  const [l_liked_variants, set_l_liked_variants] = F_Use_Local_Storage('brandStudioLiked', []);
+  const [l_variants, set_l_variants, l_variants_loading] = F_Use_Indexed_DB('brandStudioExplore', []);
+  const [l_liked_variants, set_l_liked_variants, l_liked_loading] = F_Use_Indexed_DB('brandStudioLiked', []);
   const [l_active_tab, set_l_active_tab] = useState('explore');
   const [l_is_generating, set_l_is_generating] = useState(false);
   const { is_dark, F_Toggle_Theme } = F_Use_Theme();
@@ -48,10 +48,10 @@ export default function F_App() {
   }, [l_filters]);
 
   useEffect(() => {
-    if (l_variants.length === 0) {
+    if (!l_variants_loading && l_variants.length === 0) {
       F_Generate_New_Variants();
     }
-  }, [F_Generate_New_Variants, l_variants.length]);
+  }, [F_Generate_New_Variants, l_variants.length, l_variants_loading]);
 
   const F_Toggle_Like = (p_variant) => {
     set_l_liked_variants(prev => {
@@ -59,9 +59,23 @@ export default function F_App() {
       if (l_is_liked) {
         return prev.filter(v => v.id !== p_variant.id);
       } else {
-        return [p_variant, ...prev];
+        return [{ ...p_variant, brandName: l_brand_name }, ...prev];
       }
     });
+  };
+
+  const F_Modify_Variant = (p_variant_id, p_new_bg, p_new_text) => {
+    set_l_liked_variants(prev => prev.map(v => {
+      if (v.id === p_variant_id) {
+        return {
+          ...v,
+          bgHex: p_new_bg,
+          textHex: p_new_text,
+          contrastScore: F_Get_Contrast_Ratio(p_new_bg, p_new_text).toFixed(2)
+        };
+      }
+      return v;
+    }));
   };
 
   const F_Shuffle_Colors_Only = () => {
@@ -120,6 +134,7 @@ export default function F_App() {
           brandName={l_brand_name}
           toggleLike={F_Toggle_Like}
           exportLikedJSON={() => F_Export_Liked_Json(l_liked_variants)}
+          modifyVariant={F_Modify_Variant}
         />
       )}
     </F_Main_Layout>

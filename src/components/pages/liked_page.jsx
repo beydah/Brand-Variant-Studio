@@ -11,7 +11,7 @@ import F_Variant_Card from '../organisms/variant_card';
 /**
  * Page component: Liked Page.
  */
-const F_Liked_Page = ({ likedVariants: p_liked_variants, brandName: p_brand_name, toggleLike: p_toggle_like, exportLikedJSON: p_export_liked_json }) => {
+const F_Liked_Page = ({ likedVariants: p_liked_variants, brandName: p_brand_name, toggleLike: p_toggle_like, exportLikedJSON: p_export_liked_json, modifyVariant: p_modify_variant }) => {
     const { t } = useTranslation();
 
     return (
@@ -39,6 +39,8 @@ const F_Liked_Page = ({ likedVariants: p_liked_variants, brandName: p_brand_name
                                 brandName={p_brand_name}
                                 isLiked={true}
                                 toggleLike={p_toggle_like}
+                                modifyVariant={p_modify_variant}
+                                isLikedTab={true}
                             />
                         ))}
                     </AnimatePresence>

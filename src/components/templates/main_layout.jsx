@@ -1,6 +1,7 @@
 // #region Imports
 import React from 'react';
 import F_Header from '../organisms/header';
+import { useTranslation } from 'react-i18next';
 // #endregion
 
 // #region Component
@@ -8,6 +9,8 @@ import F_Header from '../organisms/header';
  * Template component: Main Layout.
  */
 const F_Main_Layout = ({ children: p_children, activeTab: p_active_tab, setActiveTab: p_set_active_tab, likedCount: p_liked_count, isDark: p_is_dark, toggleTheme: p_toggle_theme }) => {
+    const { t } = useTranslation();
+
     return (
         <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans transition-colors duration-300">
             <F_Header
@@ -17,9 +20,16 @@ const F_Main_Layout = ({ children: p_children, activeTab: p_active_tab, setActiv
                 isDark={p_is_dark}
                 toggleTheme={p_toggle_theme}
             />
-            <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+            <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 min-h-[calc(100vh-160px)]">
                 {p_children}
             </main>
+
+            {/* Footer */}
+            <footer className="border-t border-slate-200 dark:border-slate-800 py-6 text-center no-print">
+                <p className="text-sm text-slate-500 dark:text-slate-400">
+                    {t('app.footer.made_by')} <a href="https://github.com/IlkayBeydah" target="_blank" rel="noopener noreferrer" className="font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Ilkay Beydah Saglam</a> • <a href="https://github.com/IlkayBeydah/Brand-Variant-Studio" target="_blank" rel="noopener noreferrer" className="font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{t('app.footer.contribute')}</a>
+                </p>
+            </footer>
 
             {/* CSS for print mode (PDF export) */}
             <style dangerouslySetInnerHTML={{

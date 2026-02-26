@@ -34,7 +34,12 @@
             "text": "Text",
             "copy_bg": "Copy Background Hex",
             "copy_text": "Copy Text Hex",
-            "weight": "W:"
+            "weight": "W:",
+            "swap_colors": "Swap Colors"
+        },
+        "footer": {
+            "made_by": "Made by",
+            "contribute": "Contribute on GitHub"
         }
     }
 }
