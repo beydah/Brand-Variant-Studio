@@ -36,7 +36,6 @@ export const F_IDB_Get = async (key, defaultValue = null) => {
             };
         });
     } catch (err) {
-        console.error('IndexedDB get error:', err);
         return defaultValue;
     }
 };
@@ -53,7 +52,7 @@ export const F_IDB_Set = async (key, value) => {
             request.onsuccess = () => resolve();
         });
     } catch (err) {
-        console.error('IndexedDB set error:', err);
+        // Silently ignore errors as requested
     }
 };
 // #endregion
