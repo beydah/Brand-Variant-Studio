@@ -77,16 +77,14 @@ const F_Variant_Card = ({ variant: p_variant, brandName: p_brand_name, isLiked: 
                         <Heart size={20} className={p_is_liked ? "fill-red-500 text-red-500" : l_icon_color_class} />
                     </button>
 
-                    <div className="absolute top-3 left-3 flex gap-2 opacity-0 group-hover/preview:opacity-100 transition-opacity z-10">
-                        {p_is_liked_tab && (
-                            <button
-                                onClick={handleSwapColors}
-                                className={`p-2 rounded-full bg-white/20 hover:bg-white/40 backdrop-blur-sm transition-colors ${l_icon_color_class}`}
-                                title={t('app.card.swap_colors') || "Swap Colors"}
-                            >
-                                <ArrowLeftRight size={16} />
-                            </button>
-                        )}
+                    <div className="absolute top-3 left-3 flex gap-2 z-10">
+                        <button
+                            onClick={handleSwapColors}
+                            className={`p-2 rounded-full bg-white/20 hover:bg-white/40 backdrop-blur-sm transition-colors ${l_icon_color_class}`}
+                            title={t('app.card.swap_colors') || "Swap Colors"}
+                        >
+                            <ArrowLeftRight size={16} />
+                        </button>
                     </div>
 
                     <span
@@ -118,7 +116,7 @@ const F_Variant_Card = ({ variant: p_variant, brandName: p_brand_name, isLiked: 
                                     className="flex-1 bg-blue-600 hover:bg-blue-700 text-white shadow-lg rounded-xl py-2 px-4 flex items-center justify-center gap-2 font-medium text-sm transition-colors"
                                 >
                                     <Save size={16} />
-                                    {t('app.card.save', 'Kaydet')}
+                                    {t('app.card.save')}
                                 </button>
                                 <button
                                     onClick={handleUndo}
@@ -132,11 +130,13 @@ const F_Variant_Card = ({ variant: p_variant, brandName: p_brand_name, isLiked: 
 
                     <div className="flex flex-col gap-2">
                         <div className="flex items-center justify-between">
-                            <span className="font-semibold text-lg text-slate-900 dark:text-white truncate max-w-full" title={p_variant.fontFamily}>
-                                {p_variant.fontFamily}
-                            </span>
-                            <div className="shrink-0 mt-0.5">
-                                <F_Copy_Button text={p_variant.fontFamily} tooltip={t('app.card.copy_font')} hideText />
+                            <div className="flex items-center gap-2 max-w-full">
+                                <div className="shrink-0 mt-0.5">
+                                    <F_Copy_Button text={p_variant.fontFamily} tooltip={t('app.card.copy_font')} hideText />
+                                </div>
+                                <span className="font-semibold text-lg text-slate-900 dark:text-white truncate max-w-full" title={p_variant.fontFamily}>
+                                    {p_variant.fontFamily}
+                                </span>
                             </div>
                         </div>
 

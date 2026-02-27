@@ -8,6 +8,15 @@
             "generate": "Oluştur",
             "try": "Dene:"
         },
+        "landing": {
+            "title": "Brand Variant Studio",
+            "subtitle": "Markanız için en mükemmel görünümü bulun. Saniyeler içinde binlerce tipografi ve renk varyantını oluşturun ve keşfedin.",
+            "cta": "Keşfetmeye Başla",
+            "developer": "İlkay Beydah Sağlam tarafından geliştirildi",
+            "github": "GitHub'da İncele",
+            "repo_url": "https://github.com/beydah/Brand-Variant-Studio",
+            "dev_url": "https://beydahsaglam.com"
+        },
         "tabs": {
             "explore": "Keşfet",
             "liked": "Beğenilenler"
@@ -34,6 +43,7 @@
             "empty_message": "Keşfet'e geri dönün ve beğendiğiniz stilleri kalpleyin."
         },
         "card": {
+            "save": "Kaydet",
             "export_png": "PNG Olarak Dışa Aktar",
             "copy_font": "Yazı Tipi Ailesini Kopyala",
             "background": "Arka Plan",

@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import F_Main_Layout from './components/templates/main_layout';
+import F_Landing_Page from './components/pages/landing_page';
 import F_Explore_Page from './components/pages/explore_page';
 import F_Liked_Page from './components/pages/liked_page';
 import { F_Use_Theme } from './hooks/use_theme';
@@ -107,46 +108,54 @@ export default function F_App() {
 
   // #region Render
   return (
-    <F_Main_Layout
-      activeTab={l_active_tab}
-      likedCount={l_liked_variants.length}
-      isDark={is_dark}
-      toggleTheme={F_Toggle_Theme}
-    >
-      <Routes>
-        <Route path="/" element={<Navigate to="/home" replace />} />
-        <Route
-          path="/home"
-          element={
-            <F_Explore_Page
-              brandName={l_brand_name}
-              setBrandName={set_l_brand_name}
-              generateNewVariants={F_Generate_New_Variants}
-              isGenerating={l_is_generating}
-              filters={l_filters}
-              setFilters={set_l_filters}
-              shuffleFontsOnly={F_Shuffle_Fonts_Only}
-              shuffleColorsOnly={F_Shuffle_Colors_Only}
-              variants={l_variants}
-              likedVariants={l_liked_variants}
-              toggleLike={F_Toggle_Like}
-            />
-          }
-        />
-        <Route
-          path="/likes"
-          element={
-            <F_Liked_Page
-              likedVariants={l_liked_variants}
-              brandName={l_brand_name}
-              toggleLike={F_Toggle_Like}
-              exportLikedJSON={() => F_Export_Liked_Json(l_liked_variants)}
-              modifyVariant={F_Modify_Variant}
-            />
-          }
-        />
-      </Routes>
-    </F_Main_Layout>
+    <Routes>
+      <Route path="/" element={<F_Landing_Page isDark={is_dark} toggleTheme={F_Toggle_Theme} />} />
+      <Route
+        path="/*"
+        element={
+          <F_Main_Layout
+            activeTab={l_active_tab}
+            likedCount={l_liked_variants.length}
+            isDark={is_dark}
+            toggleTheme={F_Toggle_Theme}
+          >
+            <Routes>
+              <Route
+                path="/variants"
+                element={
+                  <F_Explore_Page
+                    brandName={l_brand_name}
+                    setBrandName={set_l_brand_name}
+                    generateNewVariants={F_Generate_New_Variants}
+                    isGenerating={l_is_generating}
+                    filters={l_filters}
+                    setFilters={set_l_filters}
+                    shuffleFontsOnly={F_Shuffle_Fonts_Only}
+                    shuffleColorsOnly={F_Shuffle_Colors_Only}
+                    variants={l_variants}
+                    likedVariants={l_liked_variants}
+                    toggleLike={F_Toggle_Like}
+                  />
+                }
+              />
+              <Route
+                path="/likes"
+                element={
+                  <F_Liked_Page
+                    likedVariants={l_liked_variants}
+                    brandName={l_brand_name}
+                    toggleLike={F_Toggle_Like}
+                    exportLikedJSON={() => F_Export_Liked_Json(l_liked_variants)}
+                    modifyVariant={F_Modify_Variant}
+                  />
+                }
+              />
+              <Route path="*" element={<Navigate to="/variants" replace />} />
+            </Routes>
+          </F_Main_Layout>
+        }
+      />
+    </Routes>
   );
   // #endregion
 }

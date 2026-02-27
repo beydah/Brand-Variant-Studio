@@ -1,7 +1,7 @@
 // #region Imports
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { SlidersHorizontal, Type, Palette } from 'lucide-react';
+import { SlidersHorizontal, Type, Palette, ChevronDown, ChevronUp } from 'lucide-react';
 import { FONT_CATEGORIES, COLOR_TONES } from '../../constants';
 // #endregion
 
@@ -24,6 +24,7 @@ const F_Filter_Section = ({ filters: p_filters, setFilters: p_set_filters, gener
                 >
                     <SlidersHorizontal size={16} className={is_visible ? "text-blue-600 dark:text-blue-400" : "text-slate-400"} />
                     {t('app.filters.label', 'Filtreler')}
+                    {is_visible ? <ChevronUp size={16} className="text-slate-400" /> : <ChevronDown size={16} className="text-slate-400" />}
                 </button>
             </div>
 

@@ -8,6 +8,15 @@
             "generate": "Generate",
             "try": "Try:"
         },
+        "landing": {
+            "title": "Brand Variant Studio",
+            "subtitle": "Find the perfect look for your brand. Generate and explore thousands of typography and color variants in seconds.",
+            "cta": "Start Exploring",
+            "developer": "Developed by Ilkay Beydah Sağlam",
+            "github": "View on GitHub",
+            "repo_url": "https://github.com/beydah/Brand-Variant-Studio",
+            "dev_url": "https://beydahsaglam.com"
+        },
         "tabs": {
             "explore": "Explore",
             "liked": "Liked"
@@ -34,6 +43,7 @@
             "empty_message": "Go back to explore and heart some styles you like."
         },
         "card": {
+            "save": "Save",
             "export_png": "Export as PNG",
             "copy_font": "Copy Font Family",
             "background": "Background",

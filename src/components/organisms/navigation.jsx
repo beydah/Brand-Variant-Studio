@@ -53,7 +53,7 @@ const F_Navigation = ({ isDark: p_is_dark, toggleTheme: p_toggle_theme, likedCou
 
                 {/* Logo Area & Collapse Toggle */}
                 <div className={`p-6 flex flex-col ${p_is_collapsed ? 'items-center' : 'items-start'} gap-4`}>
-                    <Link to="/home" className="flex items-center gap-3 hover:opacity-90 transition-opacity" title={p_is_collapsed ? t('app.title', 'Brand Variant') : ''}>
+                    <Link to="/" className="flex items-center gap-3 hover:opacity-90 transition-opacity" title={p_is_collapsed ? t('app.title', 'Brand Variant') : ''}>
                         <div className={`${p_is_collapsed ? 'w-10 h-10' : 'w-8 h-8'} shrink-0 transition-all`}>
                             <Logo idSuffix="desktop" />
                         </div>
@@ -90,7 +90,7 @@ const F_Navigation = ({ isDark: p_is_dark, toggleTheme: p_toggle_theme, likedCou
                 {/* Main Links */}
                 <div className={`flex-1 ${p_is_collapsed ? 'px-2' : 'px-4'} space-y-2 overflow-y-auto`}>
                     <button
-                        onClick={() => navigate('/home')}
+                        onClick={() => navigate('/variants')}
                         className={`w-full flex items-center ${p_is_collapsed ? 'justify-center p-3' : 'gap-3 px-4 py-3'} rounded-xl font-medium transition-all ${l_active_tab === 'explore'
                             ? 'bg-slate-100 dark:bg-slate-800 text-blue-600 dark:text-blue-400'
                             : 'text-slate-600 hover:bg-slate-50 dark:text-slate-400 dark:hover:bg-slate-800/50 hover:text-slate-900 dark:hover:text-white'
@@ -168,7 +168,7 @@ const F_Navigation = ({ isDark: p_is_dark, toggleTheme: p_toggle_theme, likedCou
 
             {/* --- MOBILE TOP BAR --- */}
             <nav className="md:hidden fixed top-0 w-full h-16 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 z-50 px-4 flex items-center justify-between">
-                <Link to="/home" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
+                <Link to="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
                     <div className="w-8 h-8 shrink-0">
                         <Logo idSuffix="mobile" />
                     </div>
@@ -196,7 +196,7 @@ const F_Navigation = ({ isDark: p_is_dark, toggleTheme: p_toggle_theme, likedCou
             {/* --- MOBILE BOTTOM NAVIGATION --- */}
             <nav className="md:hidden fixed bottom-0 w-full h-16 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 z-50 flex items-center justify-around pb-safe">
                 <button
-                    onClick={() => navigate('/home')}
+                    onClick={() => navigate('/variants')}
                     className={`flex flex-col items-center justify-center w-full h-full gap-1 ${l_active_tab === 'explore'
                         ? 'text-blue-600 dark:text-blue-400'
                         : 'text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
